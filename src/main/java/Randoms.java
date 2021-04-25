@@ -1,52 +1,42 @@
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
+//import java.util.List;
+//import java.util.Random;
+//
+//public class Randoms {
+////public class Randoms implements Collection {
+//
+//    public List<Integer> randoms;
+//    protected int max;
+//    protected int min;
+//    protected Random random;
 
-public class Randoms implements Iterable<Integer> {
-    public List<Integer> randoms= new ArrayList<>();
-    protected int max;
-    protected int min;
-    protected Random random;
-
-    //формирование коллекции
-    public Randoms(int min, int max) {
-        Random random = new Random();
-        while(true){
-            int x = random.nextInt((max - min)) + min + 1;
-            randoms.add(x);
-            if (x == 100) {
-                break;
-            }
-        }
-    }
-
-    //итератор
-    @Override
-    public Iterator<Integer> iterator() {
-        return new Iterator<Integer>() {
-            int next = 0;
-
-            @Override
-            public boolean hasNext() {
-                if (next < randoms.size()) {
-                    return true;
-                }
-                return false;
-            }
-
-            @Override
-            public Integer next() {
-                if (next < randoms.size()){
-                    Integer element = randoms.get(next);
-                    next++;
-                    return element;
-                }
-                return null;
-            }
-        };
-    }
-
-
-
-}
+//    public Randoms(List<Integer> randoms, int min, int max) {
+//        this.randoms = randoms;
+//        this.min = min;
+//        this.max = max;
+//    }
+//}
+//    //итератор
+//    public class RandomsIterator implements Iterator {
+//        int next;
+//
+//        @Override
+//        public boolean hasNext() {
+//            return next < randoms.size();
+//        }
+//
+//        @Override
+//        public Integer next() {
+//            if (next < randoms.size()){
+//                Integer element = randoms.get(next);
+//                next++;
+//                return element;
+//            }
+//            return null;
+//        }
+//    }
+//
+//    @Override
+//    public Iterator getIterator() {
+//        return null;
+//    }
+//}
