@@ -8,10 +8,13 @@ public class Randoms implements Iterable<Integer> {
     protected int max;
     protected int min;
     protected Random random;
+    Iterator iterator = randoms.iterator();
 
     //формирование коллекции
     public Randoms(int min, int max) {
         Random random = new Random();
+        this.max = max;
+        this.min = min;
         while(true){
             int x = random.nextInt((max - min)) + min + 1;
             randoms.add(x);
