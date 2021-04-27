@@ -3,28 +3,27 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-public class Randoms implements Iterable<Integer> {
-    public List<Integer> randoms= new ArrayList<>();
-    protected int max;
+public class Randoms implements Iterable<Integer>{
+    public List<Integer> randoms = new ArrayList<>();
     protected int min;
-    protected Random random;
-    Iterator iterator = randoms.iterator();
+    protected int max;
+    protected int exit;
 
-    //формирование коллекции
-    public Randoms(int min, int max) {
-        Random random = new Random();
-        this.max = max;
+    Random random = new Random();
+
+    public Randoms(int min, int max, int exit){
         this.min = min;
+        this.max = max;
+        this.exit = exit;
         while(true){
             int x = random.nextInt((max - min)) + min + 1;
             randoms.add(x);
-            if (x == 100) {
+            if (x == exit){
                 break;
             }
         }
     }
 
-    //итератор
     @Override
     public Iterator<Integer> iterator() {
         return new Iterator<Integer>() {
@@ -32,10 +31,7 @@ public class Randoms implements Iterable<Integer> {
 
             @Override
             public boolean hasNext() {
-                if (next < randoms.size()) {
-                    return true;
-                }
-                return false;
+                    return next < randoms.size();
             }
 
             @Override
@@ -49,7 +45,4 @@ public class Randoms implements Iterable<Integer> {
             }
         };
     }
-
-
-
 }
