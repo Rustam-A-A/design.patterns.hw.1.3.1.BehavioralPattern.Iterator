@@ -4,9 +4,12 @@ public class Main {
     final static int EXIT = 100;
 
     public static void main(String[] args) {
-        for(int r: new Randoms(MIN, MAX, EXIT)) {
+        for(int r: new Randoms(MIN, MAX)) {
             System.out.println("Случайное число: " + r);
+            if (r == EXIT){
+                System.out.printf("Выпало число %d, давайте на этом закончим", EXIT);
+                break;
+            }
         }
-        System.out.printf("Выпало число %d, давайте на этом закончим", EXIT);
     }
 }
